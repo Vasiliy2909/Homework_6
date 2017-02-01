@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+
+    var user = {
+        name: 'Sergey',
+        age: 30,
+        email: 'sergey@gmail.com',
+        friends: ['Sveta', 'Artem']
+    }
+
+      function pick(obj, keys) {
+        var newObj = {};
+        Object.keys(obj).map(function (key) {
+          if (keys.includes(key)) {
+            newObj[key] = obj[key];
+          }
+        })
+        return newObj;
+      }
+      
+      console.log(pick(user, ['name', 'age','lastname'])); // {name: 'Sergey'})
+    </script>
+  </body>
+</html>

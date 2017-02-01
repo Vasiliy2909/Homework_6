@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      function reverseArray(array) {
+        if (array.length != 1) {
+          return [array.pop()].concat(reverseArray(array));
+        } else {
+          return [array.pop()];
+        }
+      }
+
+      function reverseArrayInPlace(array) {
+        var arr = reverseArray(array);
+          return arr.map(function (num) {return array.push([num].pop())});
+      }
+      
+      var array = ['1', '2', '3'];
+      console.log(reverseArray(['1', '2', '3']));
+      reverseArrayInPlace(array);
+      console.log(array);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+
+
+
+      function arrayToList(array) {
+        if (array.length > 1) {
+          return { value: array.shift(), rest: arrayToList(array) };
+        } else {
+          return { value: array.shift(), rest: null };
+        }
+      }
+
+      function listToArray(list) {
+      if (list) {
+        return [list.value].concat(listToArray(list.rest));
+      } else {
+        return [];
+      }        
+      }
+
+      function prepend(number_1, number_2) {
+        if (number_2 != undefined) {
+          return {value: number_1, rest: number_2};
+        } else {
+          return {value: number_1, rest: null};
+        }
+      }
+
+      function nth(list, number) {
+        if (list) {
+          return (number == 0) ? list.value : nth(list.rest, (number - 1));
+        } else {
+          return undefined;
+        }
+      }
+
+      console.log (arrayToList(['1', '2', '3']));
+      console.log (listToArray(arrayToList(['1', '2', '3'])));
+      console.log (prepend(10,prepend(20)));
+      console.log (nth(arrayToList(['1', '2', '3']), 2))
+    </script>
+  </body>
+</html>
